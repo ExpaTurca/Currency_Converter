@@ -1,0 +1,37 @@
+<div class="title form-control-lg text-lg-center card">
+  <h1 class="card-header">Expa Currency Converter</h1>
+  <h3 *ngFor="let query of leftQuery" class="card-footer">Left Query: {{query['left']}} | {{query['total']}}</h3>
+  <h4 class="card-text">You can only send 10 request once minute.</h4>
+</div>
+
+<div class="alert alert-success row-cols-auto text-lg-center info-div" *ngFor="let res of result|objJson">
+  <i>1 {{getNameFromCode(res['from_code'])}} equals {{res['pure_result']}} {{getNameFromCode(res['code'])}}</i>
+</div>
+
+<div class="table-borderless p-lg-5 text-lg-center">
+  <form #func = "ngForm" (ngSubmit)="Convert(func)" class="form-control card card-group">
+      <div class="container-lg">
+        <label  for="from" class="form-label text-lg-center">From</label>
+        <select class="form-select" id="from" name="from" [(ngModel)]="from" (ngModelChange)="Convert(func)" required>
+          <option *ngFor="let currency of currencyList" value="{{currency['code']}}">{{currency['native']}} {{currency['name']}}</option>
+        </select>
+
+        <input class="btn btn-secondry swapButton" id="swap" name="swap" type="button" (click)="Swap(func)" value="Swap">
+
+        <label  for="to" class="form-label text-lg-center">To</label>
+        <select class="form-select" id="to" name="to" [(ngModel)]="to" (ngModelChange)="Convert(func)" required>
+          <option *ngFor="let currency of currencyList" value="{{currency['code']}}" >{{currency['native']}} {{currency['name']}}</option>
+        </select>
+
+        <label for="amount" class="form-label text-lg-center">Amount</label>
+        <input class="text-black card" id="amount" name="amount" [(ngModel)]="amount" required>
+        <input class="btn btn-primary convertbtn" type="submit" value="Çevir">
+    </div>
+  </form>
+  <br/>
+  <div class="alert alert-success row-cols-auto text-lg-center info-div" *ngFor="let res of result|objJson">
+      <span class="gap-sm-4">
+        {{res['base_amount']}} {{getNameFromCode(res['from_code'])}} = {{res['result']}} {{getNameFromCode(res['code'])}}
+      </span>
+  </div>
+</div>

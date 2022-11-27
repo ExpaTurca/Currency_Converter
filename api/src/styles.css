@@ -1,0 +1,20 @@
+div{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+.swapButton{
+  margin: auto;
+  border-radius: 5%;
+  border-block-style: outset;
+  border: 50px aqua;
+}
+
+input#amount{
+  width: 100%;
+}
+
+.convertbtn{
+  width: 100%;
+}
