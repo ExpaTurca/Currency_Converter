@@ -14,11 +14,7 @@ import {JSONFile} from "@angular/cli/src/utilities/json-file";
 export class AppComponent implements OnInit {
   title = 'Currency Converter API';
 
-  alphabet = [
-    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
-  ];
-
-  apikey: string = "wbiMG4PorlYHOXVEJwpniM4XldQYLI6RDFkfT86V";
+  apikey: string = "API_KEY";
   currencyList: any = {};
   leftQuery: any = {};
   from: string = "USD";
